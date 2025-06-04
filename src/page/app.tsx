@@ -110,10 +110,6 @@ export default function App() {
 
       if(!data) return
       const newMessage: Message = { sender: "Me", text: data.trim() , files:processedFiles as File[]};
-  
-  
-      console.log(newMessage);
-  
       socket.current?.emit("send", {message: data.trim(), id: selectedUser?.id, senderId:userData?.id || "", files:processedFiles})
   
       if(selectedUser?.id) {
